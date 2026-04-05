@@ -213,16 +213,34 @@ Diese Funktionen sind besonders nützlich, wenn ein Zielgerät nicht sauber doku
 
 Typische Zielplattform:
 
-- **ESP32**
+- **LilyGO / T-CAN485 Board**
 
-Abhängig vom Aufbau zusätzlich:
+ESP32-SM-EMU ist insbesondere für das **LilyGO T-CAN485** geeignet.  
+Das Board basiert auf einem **ESP32** und integriert bereits **1× RS485** sowie **1× CAN** direkt auf der Hardware. Zusätzlich sind laut Hersteller unter anderem **5–12 V Versorgung**, **WS2812 RGB-LED** und **TF-/MicroSD-Unterstützung** vorhanden.
 
-- RS485-Transceiver für Modbus-RTU
-- WLAN-Infrastruktur
-- angeschlossene Feldgeräte oder Testgeräte
-- optional MQTT-Infrastruktur
+Für Modbus-RTU / RS485 ist das Board daher eine naheliegende Zielplattform für dieses Projekt.
 
-> Hinweis: Die konkrete Pinbelegung und das exakte Hardware-Setup sollten im Projektcode bzw. in der projektspezifischen Dokumentation geprüft werden.
+### Relevante RS485-Pins des LilyGO T-CAN485
+
+- **TX:** IO22
+- **RX:** IO21
+- **CALLBACK:** IO17
+- **EN:** IO9
+
+### Weitere relevante Pins
+
+- **WS2812 DATA:** IO4
+- **Booster EN:** IO16
+- **SD MISO:** IO2
+- **SD MOSI:** IO15
+- **SD SCLK:** IO14
+- **SD CS:** IO13
+
+### Referenzen
+
+- Offizielles Board-Repository: [Xinyuan-LilyGO/T-CAN485](https://github.com/Xinyuan-LilyGO/T-CAN485)
+
+> Hinweis: Die im Projekt tatsächlich verwendete Pinbelegung im Sketch hat Vorrang, falls sie von der Herstellerdokumentation oder von Beispielprojekten abweicht.
 
 ---
 
@@ -233,6 +251,8 @@ Typischerweise:
 - Arduino IDE mit ESP32-Core  
 oder
 - kompatible ESP32-/Arduino-basierte Toolchain
+
+Bei Verwendung des **LilyGO T-CAN485** kann in der Arduino IDE typischerweise **ESP32 Dev Module** als Board-Profil verwendet werden, sofern im konkreten Projektstand nichts Abweichendes dokumentiert ist.
 
 Je nach verwendetem Quellstand werden zusätzlich Bibliotheken für folgende Bereiche benötigt:
 
