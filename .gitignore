@@ -1,0 +1,33 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# Arduino / build artifacts
+build/
+dist/
+*.elf
+*.bin
+*.map
+*.hex
+
+# Logs / temporary exports
+*.log
+*.json.bak
+
+# Local secrets / config
+user_secrets.h
+secrets.h
+secrets_local.h
+*.local.*
+.env
+.env.local
+
+# Optional IDE folders
+.vscode/
+.idea/
